@@ -1,0 +1,6 @@
+../Middlewares/Third_Party/LwIP/src/netif/sio.c:16:10:sio_open	16	static
+../Middlewares/Third_Party/LwIP/src/netif/sio.c:21:6:sio_send	32	static
+../Middlewares/Third_Party/LwIP/src/netif/sio.c:27:6:sio_recv	24	static
+../Middlewares/Third_Party/LwIP/src/netif/sio.c:35:7:sio_read	32	static
+../Middlewares/Third_Party/LwIP/src/netif/sio.c:42:7:sio_tryread	32	static
+../Middlewares/Third_Party/LwIP/src/netif/sio.c:55:6:HAL_UART_RxCpltCallback	24	static
