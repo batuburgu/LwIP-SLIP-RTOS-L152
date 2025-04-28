@@ -861,7 +861,7 @@ tcp_process(struct tcp_pcb *pcb)
         pcb->rcv_ann_right_edge = pcb->rcv_nxt;
         pcb->lastack = ackno;
         pcb->snd_wnd = tcphdr->wnd;
-        pcb->snd_wnd_max = 2048; // burası değişti
+        pcb->snd_wnd_max = pcb->snd_wnd
         pcb->snd_wl1 = seqno - 1; /* initialise to seqno - 1 to force window update */
         pcb->state = ESTABLISHED;
 

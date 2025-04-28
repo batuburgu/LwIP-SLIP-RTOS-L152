@@ -613,11 +613,11 @@ http_close_or_abort_conn(struct altcp_pcb *pcb, struct http_state *hs, u8_t abor
 #endif /* LWIP_HTTPD_SUPPORT_POST*/
 
 
-  //altcp_arg(pcb, NULL);
-  //altcp_recv(pcb, NULL);
-  //altcp_err(pcb, NULL);
-  //altcp_poll(pcb, NULL, 0);
-  //altcp_sent(pcb, NULL);
+  altcp_arg(pcb, NULL);
+  altcp_recv(pcb, NULL);
+  altcp_err(pcb, NULL);
+  altcp_poll(pcb, NULL, 0);
+  altcp_sent(pcb, NULL);
   if (hs != NULL) {
     http_state_free(hs);
   }
