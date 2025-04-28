@@ -68,7 +68,16 @@ Middlewares/Third_Party/LwIP/src/netif/slipif.o: \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
- ../Middlewares/Third_Party/LwIP/src/include/lwip/sio.h
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/sio.h \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/tcp.h \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/tcpbase.h \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/ip.h \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/ip4.h \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/ip4.h \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/ip6.h \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/ip.h \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/icmp.h \
+ ../Middlewares/Third_Party/LwIP/src/include/lwip/prot/icmp.h
 ../Middlewares/Third_Party/LwIP/src/include/netif/slipif.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/opt.h:
 ../LWIP/Target/lwipopts.h:
@@ -139,3 +148,12 @@ Middlewares/Third_Party/LwIP/src/netif/slipif.o: \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
 ../Middlewares/Third_Party/LwIP/src/include/lwip/sio.h:
+../Middlewares/Third_Party/LwIP/src/include/lwip/tcp.h:
+../Middlewares/Third_Party/LwIP/src/include/lwip/tcpbase.h:
+../Middlewares/Third_Party/LwIP/src/include/lwip/ip.h:
+../Middlewares/Third_Party/LwIP/src/include/lwip/ip4.h:
+../Middlewares/Third_Party/LwIP/src/include/lwip/prot/ip4.h:
+../Middlewares/Third_Party/LwIP/src/include/lwip/ip6.h:
+../Middlewares/Third_Party/LwIP/src/include/lwip/prot/ip.h:
+../Middlewares/Third_Party/LwIP/src/include/lwip/icmp.h:
+../Middlewares/Third_Party/LwIP/src/include/lwip/prot/icmp.h:

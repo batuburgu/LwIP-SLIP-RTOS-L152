@@ -68,6 +68,7 @@
 #include "lwip/snmp.h"
 #include "lwip/sys.h"
 #include "lwip/sio.h"
+#include "tcp.h"
 
 #define SLIP_END     0xC0 /* 0300: start and end of every packet */
 #define SLIP_ESC     0xDB /* 0333: escape start (one byte escaped data follows) */
@@ -76,7 +77,7 @@
 
 /** Maximum packet size that is received by this netif */
 #ifndef SLIP_MAX_SIZE
-#define SLIP_MAX_SIZE 1500
+#define SLIP_MAX_SIZE 2500
 #endif
 
 /** Define this to the interface speed for SNMP
@@ -122,7 +123,8 @@ slipif_output(struct netif *netif, struct pbuf *p)
   u16_t i;
   u16_t size = 0;
   u8_t c;
-  u8_t uart_buffer [1024];
+  u8_t uart_buffer [2500];
+
 
   LWIP_ASSERT("netif != NULL", (netif != NULL));
   LWIP_ASSERT("netif->state != NULL", (netif->state != NULL));
@@ -159,6 +161,7 @@ slipif_output(struct netif *netif, struct pbuf *p)
   }
   /* End with packet delimiter. */
   uart_buffer[size++] = SLIP_END;
+
   sio_send(uart_buffer, priv->sd, size);
   return ERR_OK;
 }

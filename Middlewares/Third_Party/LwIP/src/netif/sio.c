@@ -2,7 +2,7 @@
 #include "cmsis_os.h"
 #include "string.h"
 
-#define RXBUFFER_SIZE 1024
+#define RXBUFFER_SIZE 2500
 extern UART_HandleTypeDef huart1;
 extern osSemaphoreId UARTSemHandle;
 extern osMessageQId UARTDataQueueHandle;
@@ -21,7 +21,13 @@ sio_fd_t sio_open(u8_t devnum) {
 void sio_send(u8_t* c, sio_fd_t fd, u16_t byte_count) {
 
 	UART_HandleTypeDef *uart = (UART_HandleTypeDef *)fd;
+
 	HAL_UART_Transmit_DMA(uart, c, byte_count);
+
+	while (uart->gState != HAL_UART_STATE_READY)
+	{
+		taskYIELD();
+	}
 }
 
 u8_t sio_recv(sio_fd_t fd) {

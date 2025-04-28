@@ -86,14 +86,29 @@ void NMI_Handler(void)
   */
 void HardFault_Handler(void)
 {
-  /* USER CODE BEGIN HardFault_IRQn 0 */
+  __asm volatile
+  (
+    "TST LR, #4       \n"
+    "ITE EQ           \n"
+    "MRSEQ R0, MSP    \n"
+    "MRSNE R0, PSP    \n"
+    "B HardFault_HandlerC \n"
+  );
+}
 
-  /* USER CODE END HardFault_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_HardFault_IRQn 0 */
-    /* USER CODE END W1_HardFault_IRQn 0 */
-  }
+void HardFault_HandlerC(uint32_t *fault_stack_address)
+{
+  volatile uint32_t r0  = fault_stack_address[0];
+  volatile uint32_t r1  = fault_stack_address[1];
+  volatile uint32_t r2  = fault_stack_address[2];
+  volatile uint32_t r3  = fault_stack_address[3];
+  volatile uint32_t r12 = fault_stack_address[4];
+  volatile uint32_t lr  = fault_stack_address[5];
+  volatile uint32_t pc  = fault_stack_address[6]; // <== Hatanın oluştuğu adres!
+  volatile uint32_t psr = fault_stack_address[7];
+
+  // Sonsuz döngüde durdur (burada debug yapabilirsin)
+  while (1);
 }
 
 /**

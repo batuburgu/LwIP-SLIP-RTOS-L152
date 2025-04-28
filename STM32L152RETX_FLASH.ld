@@ -173,6 +173,7 @@ SECTIONS
     . = . + _Min_Heap_Size;
     . = . + _Min_Stack_Size;
     . = ALIGN(8);
+  	__heap_end__ = .; 
   } >RAM
 
   /* Remove information from the compiler libraries */
